@@ -2,7 +2,7 @@
 ## ref: https://hub.docker.com/r/adfinissygroup/k8s-mariadb-galera-centos/tags/
 ##
 ## Default: none
-image: adfinissygroup/k8s-mariadb-galera-centos:v002
+image: adfinissygroup/k8s-mariadb-galera-centos:v003
 
 ## Specify an imagePullPolicy (Required)
 ## It's recommended to change this to 'Always' if the image tag is 'latest'
@@ -10,7 +10,7 @@ image: adfinissygroup/k8s-mariadb-galera-centos:v002
 imagePullPolicy: IfNotPresent
 
 ## Specify password for root user
-# mysqlRootPassword:
+mysqlRootPassword: StrongP@ssw0rd
 
 ## Create a database user
 # mysqlUser:
@@ -37,9 +37,9 @@ persistence:
 ## Configure MariaDB with a custom my.cnf file
 ## ref: https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/#example-of-configuration-file
 ##
-# config: |-
-  # [mysqld]
-  # innodb_buffer_pool_size=2G
+config: |-
+  [mysqld]
+  innodb_buffer_pool_size=2G
 
 ## Configure resource requests and limits
 ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
